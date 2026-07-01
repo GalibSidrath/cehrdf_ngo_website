@@ -47,6 +47,12 @@
                     <div class="form-text">Paste the full YouTube video link here.</div>
                 </div>
 
+<!--                video id-->
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Video Title <span class="text-danger">*</span></label>
+                    <input type="text" name="vid" class="form-control" placeholder="Enter video id" required>
+                </div>
+
 
                 <!-- Publish Date -->
                 <div class="mb-3">

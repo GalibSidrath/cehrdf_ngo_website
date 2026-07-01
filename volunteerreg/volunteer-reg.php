@@ -38,12 +38,8 @@
                             <h5 class="fw-bold text-dark mb-4 border-start border-4 border-primary ps-3" style="border-color: #2b7a78 !important;">Personal Information</h5>
                             <div class="row g-3 mb-5">
                                 <div class="col-md-6">
-                                    <label for="firstName" class="form-label fw-semibold">First Name <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="firstName" name="first_name" placeholder="E.g. Hasan" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="lastName" class="form-label fw-semibold">Last Name <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="lastName" name="last_name" placeholder="E.g. Mahmud" required>
+                                    <label for="firstName" class="form-label fw-semibold">Full Name <span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" id="fullName" name="first_name" placeholder="E.g. Hasan Ahmed" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="emailAddress" class="form-label fw-semibold">Email Address <span class="text-danger">*</span></label>

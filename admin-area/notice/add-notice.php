@@ -51,11 +51,6 @@
                     <input type="date" name="publish_date" class="form-control" required>
                 </div>
 
-                <!-- Expiry Date -->
-                <div class="mb-3">
-                    <label class="form-label fw-semibold">Expiry Date</label>
-                    <input type="date" name="expiry_date" class="form-control">
-                </div>
 
                 <!-- Notice Content (Reusable Editor) -->
                 <div class="mb-3">

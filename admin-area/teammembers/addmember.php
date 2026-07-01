@@ -84,17 +84,6 @@
                     <input type="text" name="phone" class="form-control" placeholder="e.g. +880 1712-345678">
                 </div>
 
-                <!-- Facebook -->
-                <div class="mb-3">
-                    <label class="form-label fw-semibold">Facebook Profile</label>
-                    <input type="url" name="facebook" class="form-control" placeholder="https://facebook.com/username">
-                </div>
-
-                <!-- LinkedIn -->
-                <div class="mb-3">
-                    <label class="form-label fw-semibold">LinkedIn Profile</label>
-                    <input type="url" name="linkedin" class="form-control" placeholder="https://linkedin.com/in/username">
-                </div>
 
                 <!-- Submit Buttons -->
                 <div class="d-flex gap-2 mt-4">

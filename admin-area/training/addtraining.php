@@ -52,7 +52,7 @@
                     <input type="text" name="duration" class="form-control" placeholder="e.g. 3 Days, 2 Weeks, 1 Month" required>
                 </div>
 
-                <!-- Available Seats -->
+                <!-- Total Seats -->
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Available Seats <span class="text-danger">*</span></label>
                     <input type="number" name="max_participants" class="form-control" placeholder="e.g. 25" min="1" required>

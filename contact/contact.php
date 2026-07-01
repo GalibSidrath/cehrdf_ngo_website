@@ -21,7 +21,7 @@
 
 <body class="bg-light">
 
-    <?php include 'header.php'; ?>
+    <?php include '../header.php'; ?>
 
 
     <!-- =========================================
@@ -169,7 +169,7 @@
     <!-- =========================================
          FOOTER SECTION START (Shared Component)
          ========================================= -->
-    <?php include 'footer.php'; ?>
+    <?php include '../footer.php'; ?>
 
     <!-- Bootstrap 5 JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>

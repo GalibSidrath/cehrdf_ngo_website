@@ -66,12 +66,12 @@
             <span>Partners</span>
         </a>
 
-        <a href="<?= $base ?>volunteers/volunteers.php" class="admin-nav-link <?= $current == 'volunteers.php' ? 'active' : '' ?>">
+        <a href="<?= $base ?>volunteer/volunteer.php" class="admin-nav-link <?= $current == 'volunteer.php' ? 'active' : '' ?>">
             <i class="fas fa-hand-holding-heart"></i>
             <span>Volunteers</span>
         </a>
 
-        <a href="<?= $base ?>messages/messages.php" class="admin-nav-link <?= $current == 'messages.php' ? 'active' : '' ?>">
+        <a href="<?= $base ?>message/message.php" class="admin-nav-link <?= $current == 'message.php' ? 'active' : '' ?>">
             <i class="fas fa-envelope"></i>
             <span>Messages</span>
         </a>

@@ -69,7 +69,7 @@ if (strpos($scriptDir, $headerDir) === 0 && $headerDir !== $scriptDir) {
                     <li class="nav-item"><a class="nav-link fw-semibold text-dark text-nowrap"
                             href="<?= $basePath ?>media.php">Media</a></li>
                     <li class="nav-item"><a class="nav-link fw-semibold text-dark text-nowrap"
-                            href="<?= $basePath ?>careercontact.php">Contact & Career</a></li>
+                            href="<?= $basePath ?>contact/contact.php">Contact & Career</a></li>
                 </ul>
                 <a href="<?= $basePath ?>donate.php" target="_blank"
                     class="btn btn-donate text-white fw-bold px-4 rounded-pill text-nowrap">Donate Now</a>

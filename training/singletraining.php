@@ -122,7 +122,7 @@
                                     <li class="d-flex mb-3 border-bottom pb-3">
                                         <div class="me-3 text-primary-custom"><i class="fas fa-users fs-5"></i></div>
                                         <div>
-                                            <small class="text-muted d-block fw-semibold">Available Seats</small>
+                                            <small class="text-muted d-block fw-semibold">Total Seats</small>
                                             <span class="fw-bold text-dark">50 Participants</span>
                                         </div>
                                     </li>
