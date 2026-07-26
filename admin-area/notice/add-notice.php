@@ -31,7 +31,7 @@
     <div class="card border-0 shadow-sm">
         <div class="card-body p-4">
 
-            <form action="notice_save.php" method="POST">
+            <form method="POST">
 
                 <!-- Title -->
                 <div class="mb-3">
@@ -106,3 +106,22 @@
 
 </body>
 </html>
+
+<?php 
+    include '../../config/connection.php';
+
+    if($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $title = mysqli_real_escape_string($con, $_POST['title']);
+        $ref_no = mysqli_real_escape_string($con, $_POST['ref_no']);
+        $publish_date = mysqli_real_escape_string($con, $_POST['publish_date']); 
+        $notice_content = mysqli_real_escape_string($con, $_POST['notice_content']);
+
+        $insertQuery = "INSERT INTO notice (title, ref_no, pub_date, content) VALUES ('$title', '$ref_no', '$publish_date', '$notice_content')";
+        
+        if(mysqli_query($con, $insertQuery)) {
+            echo "<script>alert('Notice added successfully!'); window.location.href='notices.php';</script>";
+        } else {
+            echo "<script>alert('Error adding notice: " . mysqli_error($con) . "');</script>";
+        }
+    }
+?>
