@@ -22,10 +22,49 @@ if (!$row) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($row['title']); ?> | CEHRDF</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../styles.css"> 
+
+    <style>
+        /* Print Styles: Only Print the Section Content */
+        @media print {
+            /* Hide header, footer, mobile sidebar, and print button */
+            header, 
+            footer, 
+            .mobile-sidebar, 
+            .btn-outline-secondary,
+            .top-bar {
+                display: none !important;
+            }
+
+            /* Reset background and padding for clean print layout */
+            body {
+                background-color: #fff !important;
+                color: #000 !important;
+            }
+
+            section {
+                padding: 0 !important;
+                background-color: transparent !important;
+            }
+
+            .card {
+                border: none !important;
+                box-shadow: none !important;
+            }
+
+            /* Ensure main container takes full width when printing */
+            .container, .col-lg-9 {
+                width: 100% !important;
+                max-width: 100% !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+        }
+    </style>
 </head>
 <body class="bg-light">
 

@@ -117,7 +117,7 @@ html {
     position: relative;
     height: 75vh;
     min-height: 500px;
-    background: url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+    background: url('images/banner-hero.jpg') center/cover no-repeat;
 }
 
 .hero-overlay {

@@ -2,17 +2,11 @@
 <div class="top-bar text-white py-2 d-none d-md-block" style="background-color: #17252A;">
     <div class="container-xl d-flex justify-content-between align-items-center">
         <div class="small">
-            <i class="fas fa-envelope me-2"></i>info@cehrdf.org
+            <i class="fas fa-envelope me-2"></i>cehrdf.org@gmail.com
             <span class="mx-3 text-secondary">|</span>
-            <i class="fas fa-phone-alt me-2"></i>+880 1XXX-XXXXXX
+            <i class="fas fa-phone-alt me-2"></i>01876-044999 | 01827-823531 | 01886-475216
             <span class="mx-3 text-secondary">|</span>
             <i class="fas fa-map-marker-alt me-2"></i>Cox's Bazar, Bangladesh
-        </div>
-        <div>
-            <a href="#" class="text-white me-3 text-decoration-none"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="text-white me-3 text-decoration-none"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-white me-3 text-decoration-none"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" class="text-white text-decoration-none"><i class="fab fa-youtube"></i></a>
         </div>
     </div>
 </div>
@@ -27,10 +21,11 @@ if (strpos($scriptDir, $headerDir) === 0 && $headerDir !== $scriptDir) {
 }
 ?>
 <header class="sticky-top bg-white shadow-sm header-wrapper">
+    <!-- Desktop Navbar -->
     <div class="d-none d-md-block">
         <div class="container-xl d-flex align-items-center border-bottom">
             <a class="navbar-brand fs-1 fw-bold mb-0 text-dark text-decoration-none" href="<?= $basePath ?>index.php">
-                <img src="<?= $basePath ?>images/logo.png" alt="logo" height="110" width="85">
+                <img src="<?= $basePath ?>images/logo.png" alt="logo" height="90" width="90" class="me-2">
             </a>
             <div class="vertical-divider mx-4"></div>
             <h1 class="fs-5 fw-semibold text-muted mb-0 lh-sm">
@@ -50,27 +45,40 @@ if (strpos($scriptDir, $headerDir) === 0 && $headerDir !== $scriptDir) {
                         </a>
                         <ul class="dropdown-menu border-0 shadow-sm rounded-3 mt-1" aria-labelledby="whoWeAreDropdown">
                             <li><a class="dropdown-item fw-semibold text-muted"
-                                    href="<?= $basePath ?>about.php#who-we-are">Who We
-                                    Are</a></li>
+                                    href="<?= $basePath ?>about/about.php#who-we-are">Who We Are</a></li>
                             <li><a class="dropdown-item fw-semibold text-muted"
-                                    href="<?= $basePath ?>about.php#mission-vision-values">Mission & Vision</a></li>
+                                    href="<?= $basePath ?>about/about.php#mission">Our Core Mission</a></li>
                             <li><a class="dropdown-item fw-semibold text-muted"
-                                    href="<?= $basePath ?>about.php#objectives">Objectives</a></li>
+                                    href="<?= $basePath ?>about/about.php#vision">Vision 2031</a></li>
                             <li><a class="dropdown-item fw-semibold text-muted"
-                                    href="<?= $basePath ?>about.php#our-founding-members">Founding Members</a></li>
+                                    href="<?= $basePath ?>about/about.php#objectives">Our Core Values</a></li>
                             <li><a class="dropdown-item fw-semibold text-muted"
-                                    href="<?= $basePath ?>about.php#our-inspiration">Our Inspiration</a></li>
+                                    href="<?= $basePath ?>about/about.php#founder-statement">Founder Statement</a></li>
+                            <li><a class="dropdown-item fw-semibold text-muted"
+                                    href="<?= $basePath ?>about/about.php#how-we-do">How We Do</a></li>
+                            <li><a class="dropdown-item fw-semibold text-muted"
+                                    href="<?= $basePath ?>about/about.php#our-board-members">Board Members</a></li>
+                            <li><a class="dropdown-item fw-semibold text-muted"
+                                    href="<?= $basePath ?>about/about.php#our-inspiration">Our Inspiration</a></li>
+                            <li><a class="dropdown-item fw-semibold text-muted"
+                                    href="<?= $basePath ?>about/about.php#partners">Partners & Networks</a></li>
+                            <li><a class="dropdown-item fw-semibold text-muted"
+                                    href="<?= $basePath ?>about/about.php#where-we-work">Where We Work</a></li>
                         </ul>
                     </li>
 
                     <li class="nav-item"><a class="nav-link fw-semibold text-dark text-nowrap"
-                            href="<?= $basePath ?>programandproject.php">Programs & Projects</a></li>
+                            href="<?= $basePath ?>mediaandnews/mediaandnews.php">News & Highlights</a></li>
                     <li class="nav-item"><a class="nav-link fw-semibold text-dark text-nowrap"
-                            href="<?= $basePath ?>resources.php">Resources</a></li>
+                            href="<?= $basePath ?>project/projects.php">Program & Projects</a></li>
                     <li class="nav-item"><a class="nav-link fw-semibold text-dark text-nowrap"
-                            href="<?= $basePath ?>media.php">Media</a></li>
+                            href="<?= $basePath ?>training/alltrainings.php">Trainings</a></li>
                     <li class="nav-item"><a class="nav-link fw-semibold text-dark text-nowrap"
-                            href="<?= $basePath ?>contact/contact.php">Contact & Career</a></li>
+                            href="<?= $basePath ?>meeting/allmeetings.php">Meetings & Minutes</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold text-dark text-nowrap"
+                            href="<?= $basePath ?>job/alljobs.php">Careers</a></li>
+                    <li class="nav-item"><a class="nav-link fw-semibold text-dark text-nowrap"
+                            href="<?= $basePath ?>contact/contact.php">Contact Us</a></li>
                 </ul>
                 <a href="<?= $basePath ?>donate.php" target="_blank"
                     class="btn btn-donate text-white fw-bold px-4 rounded-pill text-nowrap">Donate Now</a>
@@ -78,6 +86,7 @@ if (strpos($scriptDir, $headerDir) === 0 && $headerDir !== $scriptDir) {
         </div>
     </div>
 
+    <!-- Mobile Header Bar -->
     <div class="d-flex d-md-none align-items-center justify-content-between px-3 mobile-header-bar">
         <button class="btn border-0 p-0 fs-3 text-dark" id="mobileMenuBtn">
             <i class="fas fa-bars"></i>
@@ -87,41 +96,81 @@ if (strpos($scriptDir, $headerDir) === 0 && $headerDir !== $scriptDir) {
             class="btn btn-donate btn-sm text-white fw-bold px-3 rounded-pill">Donate</a>
     </div>
 </header>
-<div class="mobile-sidebar bg-white shadow" id="mobileSidebar">
-    <ul class="list-unstyled p-3">
-        <li class="mb-2"><a href="<?= $basePath ?>index.php"
-                class="d-block py-2 fw-semibold text-dark text-decoration-none border-bottom">Home</a></li>
 
+<!-- Mobile Sidebar -->
+<div class="mobile-sidebar bg-white shadow" id="mobileSidebar">
+    <ul class="list-unstyled p-3 mb-0">
+        <!-- Home -->
+        <li class="mb-2">
+            <a href="<?= $basePath ?>index.php"
+                class="d-block py-2 fw-semibold text-dark text-decoration-none border-bottom">Home</a>
+        </li>
+
+        <!-- Who We Are Dropdown -->
         <li class="mb-2">
             <a href="#aboutMenu" data-bs-toggle="collapse" aria-expanded="false"
                 class="d-flex justify-content-between align-items-center py-2 fw-semibold text-dark text-decoration-none border-bottom">
                 Who We Are <i class="fas fa-chevron-down small"></i>
             </a>
-            <ul class="dropdown-menu border-0 shadow-sm rounded-3 mt-1" aria-labelledby="whoWeAreDropdown">
-                <li><a class="dropdown-item fw-semibold text-muted" href="about.php#who-we-are">Who We
-                        Are</a></li>
-                <li><a class="dropdown-item fw-semibold text-muted"
-                        href="<?= $basePath ?>about.php#mission-vision-values">Mission
-                        & Vision</a></li>
-                <li><a class="dropdown-item fw-semibold text-muted"
-                        href="<?= $basePath ?>about.php#objectives">Objectives</a></li>
-                <li><a class="dropdown-item fw-semibold text-muted"
-                        href="<?= $basePath ?>about.php#our-founding-members">Founding
-                        Members</a></li>
-                <li><a class="dropdown-item fw-semibold text-muted" href="<?= $basePath ?>about.php#our-inspiration">Our
-                        Inspiration</a></li>
+            <ul class="collapse list-unstyled ps-3 mt-1" id="aboutMenu">
+                <li><a class="dropdown-item fw-semibold text-muted py-2"
+                        href="<?= $basePath ?>about/about.php#who-we-are">Who We Are</a></li>
+                <li><a class="dropdown-item fw-semibold text-muted py-2"
+                        href="<?= $basePath ?>about/about.php#mission">Our Core Mission</a></li>
+                <li><a class="dropdown-item fw-semibold text-muted py-2"
+                        href="<?= $basePath ?>about/about.php#vision">Vision 2031</a></li>
+                <li><a class="dropdown-item fw-semibold text-muted py-2"
+                        href="<?= $basePath ?>about/about.php#objectives">Our Core Values</a></li>
+                <li><a class="dropdown-item fw-semibold text-muted py-2"
+                        href="<?= $basePath ?>about/about.php#founder-statement">Founder Statement</a></li>
+                <li><a class="dropdown-item fw-semibold text-muted py-2"
+                        href="<?= $basePath ?>about/about.php#how-we-do">How We Do</a></li>
+                <li><a class="dropdown-item fw-semibold text-muted py-2"
+                        href="<?= $basePath ?>about/about.php#our-board-members">Board Members</a></li>
+                <li><a class="dropdown-item fw-semibold text-muted py-2"
+                        href="<?= $basePath ?>about/about.php#our-inspiration">Our Inspiration</a></li>
+                <li><a class="dropdown-item fw-semibold text-muted py-2"
+                        href="<?= $basePath ?>about/about.php#partners">Partners & Networks</a></li>
+                <li><a class="dropdown-item fw-semibold text-muted py-2"
+                        href="<?= $basePath ?>about/about.php#where-we-work">Where We Work</a></li>
             </ul>
         </li>
 
-        <li class="mb-2"><a href="<?= $basePath ?>programandproject.php"
-                class="d-block py-2 fw-semibold text-dark text-decoration-none border-bottom">Programs &
-                Projects</a></li>
-        <li class="mb-2"><a href="<?= $basePath ?>resources.php"
-                class="d-block py-2 fw-semibold text-dark text-decoration-none border-bottom">Resources</a></li>
-        <li class="mb-2"><a href="<?= $basePath ?>media.php"
-                class="d-block py-2 fw-semibold text-dark text-decoration-none border-bottom">Media</a></li>
-        <li class="mb-2"><a href="<?= $basePath ?>careercontact.php"
-                class="d-block py-2 fw-semibold text-dark text-decoration-none">Contact & Career</a></li>
+        <!-- News & Highlights -->
+        <li class="mb-2">
+            <a href="<?= $basePath ?>mediaandnews/mediaandnews.php"
+                class="d-block py-2 fw-semibold text-dark text-decoration-none border-bottom">News & Highlights</a>
+        </li>
+
+        <!-- Program & Projects -->
+        <li class="mb-2">
+            <a href="<?= $basePath ?>project/projects.php"
+                class="d-block py-2 fw-semibold text-dark text-decoration-none border-bottom">Program & Projects</a>
+        </li>
+
+        <!-- Trainings -->
+        <li class="mb-2">
+            <a href="<?= $basePath ?>training/alltrainings.php"
+                class="d-block py-2 fw-semibold text-dark text-decoration-none border-bottom">Trainings</a>
+        </li>
+
+        <!-- Meetings & Minutes -->
+        <li class="mb-2">
+            <a href="<?= $basePath ?>meeting/allmeetings.php"
+                class="d-block py-2 fw-semibold text-dark text-decoration-none border-bottom">Meetings & Minutes</a>
+        </li>
+
+        <!-- Careers -->
+        <li class="mb-2">
+            <a href="<?= $basePath ?>job/alljobs.php"
+                class="d-block py-2 fw-semibold text-dark text-decoration-none border-bottom">Careers</a>
+        </li>
+
+        <!-- Contact Us -->
+        <li class="mb-2">
+            <a href="<?= $basePath ?>contact/contact.php"
+                class="d-block py-2 fw-semibold text-dark text-decoration-none">Contact Us</a>
+        </li>
     </ul>
 </div>
 <!-- Header Section End -->

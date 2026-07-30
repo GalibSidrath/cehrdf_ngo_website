@@ -49,6 +49,11 @@
                     <input type="date" name="agreement_date" class="form-control" required>
                 </div>
 
+                <div class="mb-3">
+                    <label class="form-label fw-semibold">Description <span class="text-danger">*</span></label>
+                    <textarea name="description" class="form-control" rows="3" placeholder="Enter partner description"></textarea>
+                </div>
+
                 
 
                 <div class="d-flex gap-2 mt-4">
@@ -100,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_partner'])) {
     // Sanitize the inputs
     $name = mysqli_real_escape_string($con, $_POST['name']);
     $agreement_date = mysqli_real_escape_string($con, $_POST['agreement_date']);
-
+    $description = mysqli_real_escape_string($con, $_POST['description']);
     // Handle File Upload
     $logoName = $_FILES['logo']['name'];
     $logoTmp = $_FILES['logo']['tmp_name'];
@@ -119,8 +124,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_partner'])) {
     if (move_uploaded_file($logoTmp, $targetPath)) {
         
         // Insert data into the database
-        $insertQuery = "INSERT INTO partner (name, logo, agreement_date) 
-                        VALUES ('$name', '$finalLogoName', '$agreement_date')";
+        $insertQuery = "INSERT INTO partner (name, logo, agreement_date, description) 
+                        VALUES ('$name', '$finalLogoName', '$agreement_date', '$description')";
 
         if (mysqli_query($con, $insertQuery)) {
             echo "<script>

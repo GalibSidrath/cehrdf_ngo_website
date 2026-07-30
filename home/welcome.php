@@ -7,6 +7,6 @@
         community development programs, we help vulnerable communities across Bangladesh build
         resilience and secure their fundamental rights.
     </p>
-    <a href="about.php" class="btn btn-outline-primary-custom fw-bold px-4">Read Our Full Story <i
+    <a href="about/about.php" class="btn btn-outline-primary-custom fw-bold px-4">Read Our Full Story <i
             class="fas fa-arrow-right ms-2"></i></a>
 </div>

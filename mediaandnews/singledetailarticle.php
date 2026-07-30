@@ -24,6 +24,7 @@ if ($result && mysqli_num_rows($result) > 0) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo htmlspecialchars($news['title']); ?> | CEHRDF</title>
+    <link rel="icon" type="image/png" href="../images/logo.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -66,13 +67,6 @@ if ($result && mysqli_num_rows($result) > 0) {
                         <div class="tags">
                             <span class="fw-bold text-dark me-2 small">Category:</span>
                             <span class="badge bg-light text-dark border"><?php echo htmlspecialchars($news['category']); ?></span>
-                        </div>
-                        
-                        <div class="social-share">
-                            <span class="fw-bold text-dark me-2 small">Share:</span>
-                            <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle px-2 py-1 me-1"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle px-2 py-1 me-1"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="btn btn-sm btn-outline-secondary rounded-circle px-2 py-1"><i class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
 

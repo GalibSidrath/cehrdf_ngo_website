@@ -8,6 +8,7 @@ include 'config/connection.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CEHRDF | Core Foundation</title>
+    <link rel="icon" type="image/png" href="images/logo.png">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -18,16 +19,13 @@ include 'config/connection.php';
         @media (max-width: 767.98px) {
             .mobile-header-bar {
                 min-height: 70px;
-                /* হেডারের নির্দিষ্ট উচ্চতা সেট করা হলো */
             }
 
             #mobileSidebar {
                 top: 70px !important;
                 /* মেন্যু ঠিক হেডারের নিচ থেকে শুরু হবে */
                 height: calc(100vh - 70px) !important;
-                /* মেন্যুর উচ্চতা স্ক্রিনের সাথে এডজাস্ট হবে */
                 z-index: 1010 !important;
-                /* হেডারের নিচে থাকার জন্য */
             }
         }
 
@@ -35,7 +33,6 @@ include 'config/connection.php';
             scroll-behavior: smooth;
         }
 
-        /* ড্রপডাউনে ক্লিক করলে সেকশনটি হেডারের নিচে যেন ঢাকা না পড়ে */
         section[id],
         div[id] {
             scroll-margin-top: 120px;
