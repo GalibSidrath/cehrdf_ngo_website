@@ -1,3 +1,7 @@
+
+<?php 
+    include '../session_check.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,16 +15,12 @@
 </head>
 <body>
 
-<!-- HEADER SECTION (TOPBAR) -->
 <?php include '../dashboard-components/header.php'; ?>
 
-<!-- SIDEBAR -->
 <?php include '../dashboard-components/sidebar.php'; ?>
 
-<!-- MAIN COMPONENT -->
 <main class="admin-main">
 
-    <!-- SECTION: PAGE TITLE + BACK BUTTON -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold text-dark mb-0">Add Partner</h2>
         <a href="partners.php" class="btn btn-outline-secondary">
@@ -28,41 +28,31 @@
         </a>
     </div>
 
-    <!-- SECTION: PARTNER FORM -->
     <div class="card border-0 shadow-sm">
         <div class="card-body p-4">
 
-            <form action="partner_save.php" method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data">
 
-                <!-- Partner Name -->
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Partner Name <span class="text-danger">*</span></label>
                     <input type="text" name="name" class="form-control" placeholder="e.g. UNICEF Bangladesh" required>
                 </div>
 
-
-                <!-- Logo -->
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Partner Logo <span class="text-danger">*</span></label>
                     <input type="file" name="logo" class="form-control" accept="image/*" required>
                     <div class="form-text">Recommended: transparent PNG, max width 300px. Max 2MB.</div>
                 </div>
 
-
-
-                <!-- Agreement Date -->
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Agreement Date <span class="text-danger">*</span></label>
                     <input type="date" name="agreement_date" class="form-control" required>
                 </div>
 
+                
 
-
-
-
-                <!-- Submit Buttons -->
                 <div class="d-flex gap-2 mt-4">
-                    <button type="submit" class="btn btn-success">
+                    <button type="submit" name="save_partner" class="btn btn-success">
                         <i class="fas fa-save me-2"></i>Save Partner
                     </button>
                     <a href="partners.php" class="btn btn-outline-secondary">
@@ -77,16 +67,12 @@
 
 </main>
 
-<!-- MOBILE OVERLAY -->
 <div class="admin-sidebar-overlay" id="sidebarOverlay"></div>
 
-<!-- MOBILE TOGGLE -->
 <button class="admin-mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
 
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-<!-- SIDEBAR TOGGLE SCRIPT -->
 <script>
     const sidebar = document.getElementById('adminSidebar');
     const overlay = document.getElementById('sidebarOverlay');
@@ -103,3 +89,53 @@
 
 </body>
 </html>
+
+<?php
+// Include the database connection
+include '../../config/connection.php';
+
+// Check if the form is submitted
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['save_partner'])) {
+    
+    // Sanitize the inputs
+    $name = mysqli_real_escape_string($con, $_POST['name']);
+    $agreement_date = mysqli_real_escape_string($con, $_POST['agreement_date']);
+
+    // Handle File Upload
+    $logoName = $_FILES['logo']['name'];
+    $logoTmp = $_FILES['logo']['tmp_name'];
+    $uploadDir = '../uploads/partners/';
+
+    // Create the directory if it doesn't exist
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0777, true);
+    }
+
+    // Generate a unique file name to avoid overwriting
+    $finalLogoName = time() . '_' . basename($logoName);
+    $targetPath = $uploadDir . $finalLogoName;
+
+    // Move the uploaded file to the target directory
+    if (move_uploaded_file($logoTmp, $targetPath)) {
+        
+        // Insert data into the database
+        $insertQuery = "INSERT INTO partner (name, logo, agreement_date) 
+                        VALUES ('$name', '$finalLogoName', '$agreement_date')";
+
+        if (mysqli_query($con, $insertQuery)) {
+            echo "<script>
+                    alert('Partner added successfully!');
+                    window.location.href='partner.php';
+                  </script>";
+        } else {
+            echo "<script>
+                    alert('Database Error: " . mysqli_error($con) . "');
+                  </script>";
+        }
+    } else {
+        echo "<script>
+                alert('Failed to upload logo.');
+              </script>";
+    }
+}
+?>

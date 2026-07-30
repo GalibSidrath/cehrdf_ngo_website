@@ -1,3 +1,6 @@
+<?php 
+    include '../session_check.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,7 +32,7 @@
     <div class="card border-0 shadow-sm">
         <div class="card-body p-4">
 
-            <form action="news_save.php" method="POST" enctype="multipart/form-data">
+            <form method="POST" enctype="multipart/form-data">
 
                 <!-- Title -->
                 <div class="mb-3">
@@ -142,3 +145,52 @@
 
 </body>
 </html>
+
+<?php
+
+include '../../config/connection.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+
+    $title = mysqli_real_escape_string($con, $_POST['title']);
+    $excerpt = mysqli_real_escape_string($con, $_POST['excerpt']);
+    $category = mysqli_real_escape_string($con, $_POST['category']);
+    $author = mysqli_real_escape_string($con, $_POST['author']);
+    $published_at = mysqli_real_escape_string($con, $_POST['published_at']);
+    $is_featured = mysqli_real_escape_string($con, $_POST['is_featured']);
+    $content = mysqli_real_escape_string($con, $_POST['content']); 
+
+
+    $uploadDir = '../uploads/news-feature-img/';
+    
+    if (!is_dir($uploadDir)) {
+        mkdir($uploadDir, 0755, true);
+    }
+
+    $fileName = time() . '_' . basename($_FILES["featured_image"]["name"]);
+    $targetFilePath = $uploadDir . $fileName;
+    $fileType = strtolower(pathinfo($targetFilePath, PATHINFO_EXTENSION));
+
+    $allowTypes = array('jpg', 'png', 'jpeg', 'gif', 'webp');
+    
+    if (in_array($fileType, $allowTypes)) {
+        if (move_uploaded_file($_FILES["featured_image"]["tmp_name"], $targetFilePath)) {
+            
+            $insertQuery = "INSERT INTO news (title, short_des, category, img, author, pub_date, feature, content) 
+                VALUES ('$title', '$excerpt', '$category', '$fileName', '$author', '$published_at', '$is_featured', '$content')";
+
+            if (mysqli_query($con, $insertQuery)) {
+                echo "<script>alert('News added successfully!'); window.location.href='newsandmedia.php';</script>";
+            } else {
+                echo "<script>alert('Database Error: " . mysqli_error($con) . "'); window.location.href='add-news.php';</script>";
+            }
+
+        } else {
+            echo "<script>alert('Sorry, there was an error uploading your file.'); window.location.href='addnews.php';</script>";
+        }
+    } else {
+        echo "<script>alert('Invalid file format. Only JPG, PNG, JPEG, GIF, WEBP are allowed.'); window.location.href='addnews.php';</script>";
+    }
+} 
+?>

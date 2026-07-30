@@ -1,30 +1,45 @@
 <div class="col-md-4">
     <div class="position-sticky" style="top: 100px;">
-
+        <!-- NOTICE BOARD -->
         <div class="card border-0 shadow-sm mb-4 sidebar-card">
             <div class="card-header text-white fw-bold py-3" style="background-color: #17252A;">
                 <i class="fas fa-thumbtack me-2" style="color: #ff6b5b;"></i> Notice Board
             </div>
             <div class="card-body p-0">
                 <div class="notice-scroll-area p-3">
-                    <div class="notice-item pb-3 mb-3 border-bottom">
-                        <span class="badge bg-danger mb-2">Urgent Tender</span>
-                        <a href="#"
-                            class="d-block fw-semibold text-dark text-decoration-none notice-link">Call for Quotation: Solar Panels for Offshore Islands</a>
-                        <small class="text-muted"><i class="far fa-clock me-1"></i> Deadline: June 15, 2026</small>
-                    </div>
-                    <div class="notice-item pb-3 mb-3 border-bottom">
-                        <span class="badge bg-primary-custom mb-2">Job Circular</span>
-                        <a href="#"
-                            class="d-block fw-semibold text-dark text-decoration-none notice-link">Vacancy Announcement: Field Research Officer</a>
-                        <small class="text-muted"><i class="far fa-clock me-1"></i> Deadline: June 10, 2026</small>
-                    </div>
-                    <div class="notice-item pb-1">
-                        <span class="badge bg-secondary mb-2">General Notice</span>
-                        <a href="#"
-                            class="d-block fw-semibold text-dark text-decoration-none notice-link">Annual General Meeting (AGM) Schedule Published</a>
-                        <small class="text-muted"><i class="far fa-clock me-1"></i> Published: May 25, 2026</small>
-                    </div>
+
+                    <?php
+
+                    $notice_query = "SELECT id, title, pub_date FROM notice ORDER BY pub_date DESC LIMIT 5";
+                    $notice_result = mysqli_query($con, $notice_query);
+
+                    if ($notice_result && mysqli_num_rows($notice_result) > 0) {
+
+                        while ($notice_row = mysqli_fetch_assoc($notice_result)) {
+
+                            $formatted_date = date("d M, Y", strtotime($notice_row['pub_date']));
+                            ?>
+
+                            <div class="notice-item pb-3 mb-3 border-bottom">
+                                <span class="badge bg-secondary mb-2">Notice</span>
+
+                                <a href="notice_details.php?id=<?php echo $notice_row['id']; ?>"
+                                    class="d-block fw-semibold text-dark text-decoration-none notice-link">
+                                    <?php echo htmlspecialchars($notice_row['title']); ?>
+                                </a>
+
+                                <small class="text-muted">
+                                    <i class="far fa-clock me-1"></i> Published: <?php echo $formatted_date; ?>
+                                </small>
+                            </div>
+
+                            <?php
+                        }
+                    } else {
+                        echo '<div class="text-center text-muted p-3">No notices available right now.</div>';
+                    }
+                    ?>
+
                 </div>
             </div>
             <div class="card-footer bg-white text-center py-2 border-top-0">
@@ -32,77 +47,80 @@
                     class="text-decoration-none small fw-bold text-primary-custom">View All Notices</a>
             </div>
         </div>
+
+
+
+        <!-- VIDEOS & DOCUMENTARIES -->
         <div class="card border-0 shadow-sm mb-4 sidebar-card">
             <div class="card-header text-white fw-bold py-3" style="background-color: #2b7a78;">
                 <i class="fas fa-video me-2"></i> Videos & Documentaries
             </div>
             <div class="card-body p-3">
 
-                <div class="d-flex mb-3 align-items-center sidebar-video-item border-bottom pb-3">
-                    <div class="position-relative me-3 rounded overflow-hidden"
-                        style="width: 100px; height: 70px; flex-shrink: 0;">
-                        <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=200&q=80"
-                            class="img-fluid w-100 h-100 object-fit-cover" alt="Video Thumbnail">
-                        <div class="position-absolute top-50 start-50 translate-middle text-white">
-                            <i class="fas fa-play-circle fs-4 text-shadow"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <h6 class="fw-bold mb-1 lh-sm"><a href="#"
-                                class="text-dark text-decoration-none video-link-title">Impact of Climate Change in Coastal BD</a></h6>
-                        <p class="text-muted mb-1" style="font-size: 0.75rem;">Documentary • 12 mins</p>
-                        <a href="#" class="text-decoration-none text-primary-custom fw-bold"
-                            style="font-size: 0.8rem;">Watch Video <i
-                                class="fas fa-external-link-alt ms-1" style="font-size: 0.7rem;"></i></a>
-                    </div>
-                </div>
+                <?php
+                // Query to fetch the latest 5 videos from the database
+                $video_query = "SELECT id, title, url, vid FROM videos ORDER BY pub_date DESC LIMIT 5";
+                $video_result = mysqli_query($con, $video_query);
 
-                <div class="d-flex mb-3 align-items-center sidebar-video-item border-bottom pb-3">
-                    <div class="position-relative me-3 rounded overflow-hidden"
-                        style="width: 100px; height: 70px; flex-shrink: 0;">
-                        <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?auto=format&fit=crop&w=200&q=80"
-                            class="img-fluid w-100 h-100 object-fit-cover" alt="Video Thumbnail">
-                        <div class="position-absolute top-50 start-50 translate-middle text-white">
-                            <i class="fas fa-play-circle fs-4 text-shadow"></i>
-                        </div>
-                    </div>
-                    <div>
-                        <h6 class="fw-bold mb-1 lh-sm"><a href="#"
-                                class="text-dark text-decoration-none video-link-title">Youth Empowerment Bootcamp Highlights</a></h6>
-                        <p class="text-muted mb-1" style="font-size: 0.75rem;">Event Recap • 5 mins</p>
-                        <a href="#" class="text-decoration-none text-primary-custom fw-bold"
-                            style="font-size: 0.8rem;">Watch Video <i
-                                class="fas fa-external-link-alt ms-1" style="font-size: 0.7rem;"></i></a>
-                    </div>
-                </div>
+                // Check if query is successful and returns data
+                if ($video_result && mysqli_num_rows($video_result) > 0) {
 
-                <div class="d-flex align-items-center sidebar-video-item">
-                    <div class="position-relative me-3 rounded overflow-hidden"
-                        style="width: 100px; height: 70px; flex-shrink: 0;">
-                        <img src="https://images.unsplash.com/photo-1529156069898-49953eb1b5b1?auto=format&fit=crop&w=200&q=80"
-                            class="img-fluid w-100 h-100 object-fit-cover" alt="Video Thumbnail">
-                        <div class="position-absolute top-50 start-50 translate-middle text-white">
-                            <i class="fas fa-play-circle fs-4 text-shadow"></i>
+                    // Loop through the fetched videos
+                    while ($video_row = mysqli_fetch_assoc($video_result)) {
+
+                        // Fetch YouTube thumbnail dynamically using the 'vid' field
+                        $yt_thumbnail_backup = "https://img.youtube.com/vi/" . $video_row['vid'] . "/hqdefault.jpg";
+
+                        ?>
+                        <div class="d-flex mb-3 align-items-center sidebar-video-item border-bottom pb-3">
+
+                            <div class="position-relative me-3 rounded overflow-hidden"
+                                style="width: 100px; height: 70px; flex-shrink: 0;">
+
+                                <img src="<?php echo $yt_thumbnail_backup; ?>" class="img-fluid w-100 h-100 object-fit-cover"
+                                    alt="Video Thumbnail"
+                                    onerror="this.src='https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=200&q=80'">
+
+                                <div class="position-absolute top-50 start-50 translate-middle text-white">
+                                    <i class="fas fa-play-circle fs-4 text-shadow"></i>
+                                </div>
+                            </div>
+
+                            <div>
+                                <h6 class="fw-bold mb-1 lh-sm">
+                                    <a href="<?php echo htmlspecialchars($video_row['url']); ?>" target="_blank"
+                                        class="text-dark text-decoration-none video-link-title">
+                                        <?php echo htmlspecialchars($video_row['title']); ?>
+                                    </a>
+                                </h6>
+
+                                <p class="text-muted mb-1" style="font-size: 0.75rem;">CEHRDF Video</p>
+
+                                <a href="<?php echo htmlspecialchars($video_row['url']); ?>" target="_blank"
+                                    class="text-decoration-none text-primary-custom fw-bold" style="font-size: 0.8rem;">Watch
+                                    Video <i class="fas fa-external-link-alt ms-1" style="font-size: 0.7rem;"></i>
+                                </a>
+                            </div>
                         </div>
-                    </div>
-                    <div>
-                        <h6 class="fw-bold mb-1 lh-sm"><a href="#"
-                                class="text-dark text-decoration-none video-link-title">Women's Legal Aid Success Story</a></h6>
-                        <p class="text-muted mb-1" style="font-size: 0.75rem;">Interview • 8 mins</p>
-                        <a href="#" class="text-decoration-none text-primary-custom fw-bold"
-                            style="font-size: 0.8rem;">Watch Video <i
-                                class="fas fa-external-link-alt ms-1" style="font-size: 0.7rem;"></i></a>
-                    </div>
-                </div>
+                        <?php
+                    }
+                } else {
+                    // Fallback message if no videos exist in the database
+                    echo '<div class="text-center text-muted p-3">No videos available right now.</div>';
+                }
+                ?>
 
             </div>
+
             <div class="card-footer bg-white text-center py-2 border-top-0">
                 <a href="videos/allvideos.php" target="_blank"
-                    class="text-decoration-none small fw-bold text-primary-custom">View All Videos &
-                    Documentaries</a>
+                    class="text-decoration-none small fw-bold text-primary-custom">View All Videos & Documentaries</a>
             </div>
         </div>
 
+
+
+        <!-- VOUCHER FOR DONATION AND VOLUNTEERING -->
         <div class="card border-0 shadow-sm p-4 text-center rounded-4"
             style="background-color: #f8f9fa; border-top: 4px solid #ff6b5b !important;">
             <h5 class="fw-bold text-dark mb-3">Be The Change</h5>

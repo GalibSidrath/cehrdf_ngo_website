@@ -1,3 +1,6 @@
+<?php 
+    include '../session_check.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,16 +14,10 @@
 </head>
 <body>
 
-<!-- HEADER SECTION (TOPBAR) -->
 <?php include '../dashboard-components/header.php'; ?>
-
-<!-- SIDEBAR -->
 <?php include '../dashboard-components/sidebar.php'; ?>
 
-<!-- MAIN COMPONENT -->
 <main class="admin-main">
-
-    <!-- SECTION: PAGE TITLE + BACK BUTTON -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="fw-bold text-dark mb-0">Add Video</h2>
         <a href="videos.php" class="btn btn-outline-secondary">
@@ -28,39 +25,29 @@
         </a>
     </div>
 
-    <!-- SECTION: VIDEO FORM -->
     <div class="card border-0 shadow-sm">
         <div class="card-body p-4">
-
-            <form action="video_save.php" method="POST">
-
-                <!-- Title -->
+            <form method="POST">
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Video Title <span class="text-danger">*</span></label>
                     <input type="text" name="title" class="form-control" placeholder="Enter video title" required>
                 </div>
 
-                <!-- YouTube URL -->
                 <div class="mb-3">
                     <label class="form-label fw-semibold">YouTube URL <span class="text-danger">*</span></label>
                     <input type="url" name="video_url" class="form-control" placeholder="https://youtube.com/watch?v=..." required>
-                    <div class="form-text">Paste the full YouTube video link here.</div>
                 </div>
 
-<!--                video id-->
                 <div class="mb-3">
-                    <label class="form-label fw-semibold">Video Title <span class="text-danger">*</span></label>
+                    <label class="form-label fw-semibold">Video ID <span class="text-danger">*</span></label>
                     <input type="text" name="vid" class="form-control" placeholder="Enter video id" required>
                 </div>
 
-
-                <!-- Publish Date -->
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Publish Date <span class="text-danger">*</span></label>
                     <input type="date" name="publish_date" class="form-control" required>
                 </div>
 
-                <!-- Feature on Homepage (Radio) -->
                 <div class="mb-3">
                     <label class="form-label fw-semibold d-block">Feature on Homepage?</label>
                     <div class="form-check form-check-inline">
@@ -73,7 +60,6 @@
                     </div>
                 </div>
 
-                <!-- Submit Buttons -->
                 <div class="d-flex gap-2 mt-4">
                     <button type="submit" class="btn btn-success">
                         <i class="fas fa-save me-2"></i>Save Video
@@ -82,37 +68,34 @@
                         <i class="fas fa-times me-2"></i>Cancel
                     </a>
                 </div>
-
             </form>
-
         </div>
     </div>
-
 </main>
 
-<!-- MOBILE OVERLAY -->
-<div class="admin-sidebar-overlay" id="sidebarOverlay"></div>
-
-<!-- MOBILE TOGGLE -->
-<button class="admin-mobile-toggle" id="mobileToggle"><i class="fas fa-bars"></i></button>
-
-<!-- Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-
-<!-- SIDEBAR TOGGLE SCRIPT -->
-<script>
-    const sidebar = document.getElementById('adminSidebar');
-    const overlay = document.getElementById('sidebarOverlay');
-    const toggle = document.getElementById('mobileToggle');
-    toggle.addEventListener('click', () => {
-        sidebar.classList.toggle('show');
-        overlay.classList.toggle('show');
-    });
-    overlay.addEventListener('click', () => {
-        sidebar.classList.remove('show');
-        overlay.classList.remove('show');
-    });
-</script>
-
 </body>
 </html>
+
+<?php
+
+include '../../config/connection.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    // Sanitize inputs
+    $title = mysqli_real_escape_string($con, $_POST['title']);
+    $url = mysqli_real_escape_string($con, $_POST['video_url']);
+    $vid = mysqli_real_escape_string($con, $_POST['vid']);
+    $pub_date = mysqli_real_escape_string($con, $_POST['publish_date']);
+    $is_featured = mysqli_real_escape_string($con, $_POST['is_featured']);
+
+
+    $insertQuery = "INSERT INTO videos (title, url, vid, pub_date, feature) VALUES ('$title', '$url', '$vid', '$pub_date', '$is_featured')";
+
+    if (mysqli_query($con, $insertQuery)) {
+        echo "<script>alert('Video added successfully!'); window.location.href='videos.php';</script>";
+    } else {
+        echo "<script>alert('Database Error: " . mysqli_error($con) . "');</script>";
+    }
+}
+?>

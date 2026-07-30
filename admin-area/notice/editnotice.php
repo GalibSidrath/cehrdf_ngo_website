@@ -1,4 +1,7 @@
 <?php 
+    include '../session_check.php';
+?>
+<?php 
 
     include '../../config/connection.php';
 

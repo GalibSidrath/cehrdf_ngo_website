@@ -28,9 +28,10 @@ if (strpos($scriptDir, $headerDir) === 0 && $headerDir !== $scriptDir) {
 ?>
 <header class="sticky-top bg-white shadow-sm header-wrapper">
     <div class="d-none d-md-block">
-        <div class="container-xl d-flex align-items-center py-3 border-bottom">
-            <a class="navbar-brand fs-1 fw-bold mb-0 text-dark text-decoration-none"
-                href="<?= $basePath ?>index.php">CEHRDF.</a>
+        <div class="container-xl d-flex align-items-center border-bottom">
+            <a class="navbar-brand fs-1 fw-bold mb-0 text-dark text-decoration-none" href="<?= $basePath ?>index.php">
+                <img src="<?= $basePath ?>images/logo.png" alt="logo" height="110" width="85">
+            </a>
             <div class="vertical-divider mx-4"></div>
             <h1 class="fs-5 fw-semibold text-muted mb-0 lh-sm">
                 Centre for Environment, Human Rights <br> & Development Forum

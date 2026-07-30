@@ -1,3 +1,6 @@
+<?php 
+    include '../session_check.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,7 +61,7 @@
                     <?php
                     $editorFolder = 'notices';
                     $editorName = 'notice_content';
-                    $editorContent = '<p>Write your notice content here...</p>';
+                    $editorContent = '';
                     include '../editor/editor.php';
                     ?>
                 </div>

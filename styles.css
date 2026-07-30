@@ -5,6 +5,7 @@ body {
     font-family: 'Inter', sans-serif;
     overflow-x: hidden;
 }
+
 /* =========================================
    STICKY HEADER OVERLAP FIX
    ========================================= */
@@ -291,39 +292,517 @@ footer .btn-outline-light:hover {
 /* =========================================
    About Page Custom Styles
    ========================================= */
+
+
+
+
+
+/* =========================================
+   GLOBAL UTILITIES & VARIABLES
+   ========================================= */
+:root {
+    --primary-teal: #2b7a78;
+    --dark-teal: #17252A;
+    --coral: #ff6b5b;
+    --warning-gold: #ffc107;
+    --info-blue: #17a2b8;
+    --purple: #6f42c1;
+}
+
+.ls-1 {
+    letter-spacing: 1px;
+}
+
+.ls-2 {
+    letter-spacing: 2px;
+}
+
+.tracking-wide {
+    letter-spacing: 0.05em;
+}
+
+.tracking-wider {
+    letter-spacing: 0.1em;
+}
+
+.lh-relaxed {
+    line-height: 1.75;
+}
+
+/* =========================================
+   COLOR HELPERS
+   ========================================= */
+.text-primary-custom {
+    color: var(--primary-teal) !important;
+}
+
+.text-coral {
+    color: var(--coral) !important;
+}
+
+.text-warning-custom {
+    color: #d4a017 !important;
+}
+
+.text-info-custom {
+    color: var(--info-blue) !important;
+}
+
+.text-purple-custom {
+    color: var(--purple) !important;
+}
+
+.bg-primary-custom {
+    background-color: var(--primary-teal) !important;
+}
+
+.bg-dark-teal {
+    background-color: var(--dark-teal) !important;
+}
+
+.bg-teal-soft {
+    background-color: rgba(43, 122, 120, 0.1) !important;
+}
+
+.bg-coral-soft {
+    background-color: rgba(255, 107, 91, 0.1) !important;
+}
+
+.bg-gold-soft {
+    background-color: rgba(212, 160, 23, 0.1) !important;
+}
+
+.bg-blue-soft {
+    background-color: rgba(23, 162, 184, 0.1) !important;
+}
+
+.bg-purple-soft {
+    background-color: rgba(111, 66, 193, 0.1) !important;
+}
+
+/* =========================================
+   SPACING
+   ========================================= */
+.py-6 {
+    padding-top: 5rem !important;
+    padding-bottom: 5rem !important;
+}
+
+@media (min-width: 992px) {
+    .py-lg-6 {
+        padding-top: 6rem !important;
+        padding-bottom: 6rem !important;
+    }
+}
+
+/* =========================================
+   HERO BANNER
+   ========================================= */
 .about-hero {
-    background: linear-gradient(rgba(23, 37, 42, 0.85), rgba(23, 37, 42, 0.85)), url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1920&q=80') center/cover;
-    padding: 100px 0;
+    background: linear-gradient(rgba(23, 37, 42, 0.88), rgba(23, 37, 42, 0.88)),
+        url('https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1920&q=80') center/cover;
+    min-height: 60vh;
+    position: relative;
 }
 
-.team-card,
-.legend-card {
-    border-radius: 12px;
-    transition: transform 0.3s, box-shadow 0.3s;
+.text-shadow {
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
-.team-card:hover,
-.legend-card:hover {
+/* =========================================
+   INTRO SECTION
+   ========================================= */
+.about-intro-img {
+    transition: transform 0.4s ease;
+}
+
+.about-intro-img:hover {
+    transform: scale(1.02);
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -10px;
+    padding: 1.5rem 2rem;
+    z-index: 10;
+    text-align: center;
+    min-width: 140px;
+}
+
+/* =========================================
+   PILLAR CARDS
+   ========================================= */
+.pillar-card {
+    border-radius: 16px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 4px solid transparent;
+}
+
+.pillar-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08) !important;
+}
+
+.pillar-card:nth-child(1) {
+    border-top-color: var(--primary-teal);
+}
+
+.pillar-card:nth-child(2) {
+    border-top-color: var(--coral);
+}
+
+.pillar-card:nth-child(3) {
+    border-top-color: #d4a017;
+}
+
+.pillar-card:nth-child(4) {
+    border-top-color: var(--info-blue);
+}
+
+/* =========================================
+   ICON CIRCLES
+   ========================================= */
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.icon-circle-sm {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-sm {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-xs {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* =========================================
+   VISION CARD
+   ========================================= */
+.vision-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* =========================================
+   VALUE CARDS
+   ========================================= */
+.value-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.value-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06);
+    border-color: rgba(43, 122, 120, 0.15);
 }
 
+/* =========================================
+   FOUNDER SECTION
+   ========================================= */
 .founder-img-wrapper {
     position: relative;
     display: inline-block;
 }
 
+.founder-img {
+    max-width: 340px;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease;
+}
+
+.founder-img:hover {
+    transform: scale(1.02);
+}
+
 .founder-img-wrapper::after {
     content: '';
     position: absolute;
-    bottom: -15px;
-    right: -15px;
+    bottom: -20px;
+    right: -20px;
     width: 100%;
     height: 100%;
-    border: 4px solid #2b7a78;
-    border-radius: 12px;
-    z-index: -1;
+    border: 4px solid var(--primary-teal);
+    border-radius: 16px;
+    z-index: 1;
+    transition: all 0.3s ease;
 }
+
+.founder-img-wrapper:hover::after {
+    bottom: -15px;
+    right: -15px;
+    border-color: var(--coral);
+}
+
+.founder-badge {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    white-space: nowrap;
+}
+
+.founder-quote-card {
+    transition: box-shadow 0.3s ease;
+}
+
+.founder-quote-card:hover {
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08) !important;
+}
+
+.founder-text p {
+    position: relative;
+    padding-left: 0;
+}
+
+/* =========================================
+   METHOD CARDS
+   ========================================= */
+.method-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.method-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    border-color: rgba(43, 122, 120, 0.1);
+}
+
+.method-card-sm {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.method-card-sm:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* =========================================
+   TEAM / FOUNDING MEMBER CARDS
+   ========================================= */
+.team-card {
+    border-radius: 14px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08) !important;
+}
+
+.member-avatar {
+    width: 55px;
+    height: 55px;
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.team-card:hover .member-avatar {
+    transform: scale(1.1);
+}
+
+/* =========================================
+   LEGEND CARDS
+   ========================================= */
+.legend-card {
+    border-radius: 14px;
+    transition: transform 0.3s ease, border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.legend-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--warning-gold) !important;
+    background-color: rgba(255, 193, 7, 0.05) !important;
+}
+
+.legend-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.legend-card:hover .legend-icon {
+    transform: scale(1.1);
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+/* =========================================
+   PARTNER & NETWORK CARDS
+   ========================================= */
+.partner-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.partner-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background-color: #fff !important;
+    border-color: rgba(43, 122, 120, 0.15);
+}
+
+.network-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid transparent;
+}
+
+.network-card:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background-color: #fff !important;
+    border-color: rgba(43, 122, 120, 0.15);
+}
+
+/* =========================================
+   MAP CARDS
+   ========================================= */
+.map-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.map-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06) !important;
+}
+
+.map-placeholder {
+    border: 2px dashed rgba(43, 122, 120, 0.15);
+    transition: border-color 0.3s ease;
+}
+
+.map-card:hover .map-placeholder {
+    border-color: rgba(43, 122, 120, 0.3);
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+.btn-primary-custom {
+    background-color: var(--primary-teal);
+    border-color: var(--primary-teal);
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-custom:hover {
+    background-color: #236563;
+    border-color: #236563;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(43, 122, 120, 0.25);
+}
+
+/* =========================================
+   ANIMATIONS
+   ========================================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.about-hero .container {
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* =========================================
+   RESPONSIVE ADJUSTMENTS
+   ========================================= */
+@media (max-width: 768px) {
+    .about-hero {
+        min-height: 50vh;
+        padding: 60px 0 !important;
+    }
+
+    .experience-badge {
+        right: 10px;
+        bottom: -15px;
+        padding: 1rem 1.25rem;
+        min-width: 120px;
+    }
+
+    .experience-badge .display-5 {
+        font-size: 1.75rem;
+    }
+
+    .founder-badge {
+        font-size: 0.85rem;
+        padding: 0.75rem 1rem !important;
+    }
+
+    .founder-img-wrapper::after {
+        display: none;
+    }
+
+    .py-6 {
+        padding-top: 3rem !important;
+        padding-bottom: 3rem !important;
+    }
+}
+
+/* =========================================
+   SCROLLBAR STYLING (Optional)
+   ========================================= */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-teal);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #236563;
+}
+
+
+
+
+
+
+
+
 
 /* =========================================
     About Page Custom Styles End

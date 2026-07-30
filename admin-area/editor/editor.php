@@ -44,7 +44,7 @@ $editorFolder = isset($editorFolder) ? $editorFolder : 'general';
         contenteditable="true"
         data-folder="<?= $editorFolder ?>"
     >
-        <?= isset($editorContent) ? $editorContent : '<p>Start typing...</p>' ?>
+        <?= isset($editorContent) ? $editorContent : '' ?>
     </div>
 
 </div>
